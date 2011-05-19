@@ -14,7 +14,12 @@ var db = mongoose.connect('mongodb://localhost/test', function(e) {
     }
 });
 
-console.log(sys.inspect(jqtpl));
+app.dynamicHelpers({
+    test: function() {
+        return { a: 'a', b: 'b' };
+    }
+});
+
 app.configure(function(){
     app.set('view engine', 'html');
     app.register('.html', jqtpl.express);
