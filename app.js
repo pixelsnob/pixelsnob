@@ -27,6 +27,7 @@ app.configure(function(){
     app.use(express.bodyParser());
     app.use(express.cookieParser());
     app.use(express.session({ secret: 'baby' }));
+    app.use(express.errorHandler({ showStack: true, dumpExceptions: true }));
     //app.use(express.logger());
 });
 
